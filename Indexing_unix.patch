@@ -1,0 +1,12 @@
+--- Indexing_unix.orig	2015-11-16 09:43:31.133700019 -0700
++++ Indexing_unix.sh	2015-11-16 10:12:51.212108975 -0700
+@@ -364,6 +364,9 @@
+   cd ..
+ fi
+ 
++for f in "$bundled_jre_home"/bin/*; do
++  ln -fs /usr/lib/jvm/java-6-openjdk-amd64/bin/$(basename $f) "$f"
++done
+ run_unpack200 "$bundled_jre_home"
+ run_unpack200 "$bundled_jre_home/jre"
+ else
